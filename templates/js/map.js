@@ -4,7 +4,11 @@
       var colors = {"gray": "mm_20_gray","green": "mm_20_green","orange": "mm_20_orange","purple": "mm_20_purple", 
                   "red": "mm_20_red","white": "mm_20_white", "yellow": "mm_20_yellow", "black": "mm_20_black", 
                   "blue": "mm_20_blue", "brown": "mm_20_brown"};
-      var markers = ["gray", "green", "orange", "purple", "red", "white", "yellow", "black", "blue", "brown"] //makes the array of markers to be removed based off of colors.
+      var markerskey = ["gray", "green", "orange", "purple", "red", "white", "yellow", "black", "blue", "brown"]; //makes the array of markers to be removed based off of colors.
+      $.each(markerskey, function(k, v) {
+        markers[v] = new Array();
+      });
+
       function initialize() {
         var mapOptions = {
           //center: new google.maps.LatLng(47.6559, -122.3031),
@@ -123,12 +127,12 @@ function addBusinessMarker(business, color) {
 
 function removeMarkers(color) {
 	//map.clearOverlays();
-  /*if(marker[color] != null) {}
+//  if(markers[color].length != 0 ) {
     $.each(markers[color], function(k, v) {
       //k or v?
       v.setMap(null);
     });
-  }*/
+ // }*/
 }
 
 function addUser(data) {
