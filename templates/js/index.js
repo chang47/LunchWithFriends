@@ -1,5 +1,3 @@
-var lunchLine = [];
-
 $(document).ready(function() {
 	request("get-friends",{}, function(data) {
 		var list = $("#friendlist ul");
@@ -9,16 +7,20 @@ $(document).ready(function() {
 		$.each(data, function(k, person) {
 			starttime = parseTime(person.startdatetime);
 			endtime = parseTime(person.enddatetime);
-			list.append("<li value='" + person.name + "'><img src='" + person.dp + "' /><div id='name'> " + person.name 
+			var liEl = $("<li fbid='" + person.id  + "' value='" + person.name + "'><img src='" + person.dp + "' /><div id='name'> " + person.name 
 				+ "</div><div class='smallinfo'>Start: " + starttime 
 				+ "<br />End: " + endtime 
 				+ "<br />Preference: </div></li>");
-			lunchLine.push(person);
+			list.append(liEl);
+			liEl.click(function() {
+				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
+					$.each(data, function(k, v) {
+						addBusinessMarker(v);
+					});
+				});
+			});
 		});
 	});
-	$('#friendlist ul li').click(function() {
-		console.log($(this).value + ', do something awesome!');
-	})
 });
 
 function parseTime(time) {

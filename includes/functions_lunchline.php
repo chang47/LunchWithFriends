@@ -37,7 +37,6 @@ function get_friend_locations($facebook_id)
 
 	$stmt = $db->prepare('SELECT yelp_business_id FROM lunch_locations WHERE facebook_id = ?');
 	$stmt->execute(array($facebook_id));
-	print_r($stmt->errorInfo());
 	$results = $stmt->fetchall(PDO::FETCH_ASSOC);
 
 	$out = array();
@@ -51,7 +50,7 @@ function get_friend_locations($facebook_id)
 
 function join_lunchline($availability)
 {
-	global $user, $db;
+	global $yelp, $user, $db;
 
 	if(!($starttime = date('Y-m-d H:i:s', $availability['starttime'])))
 	{
@@ -61,6 +60,8 @@ function join_lunchline($availability)
 	{
 		return false;
 	}
+
+	$suggested = $yelp->request('search?term=' . urlencode($availability['food_pref']) . '&ll=' . urlencode($availability['loc_lat']) . ',' . urlencode($availability['loc_lng']) . '&sort=2&limit=7')->businesses;
 
 	//try to make change to a current record
 	$db->beginTransaction();
@@ -74,13 +75,15 @@ function join_lunchline($availability)
 	}
 
 	//resaurants
-	foreach(explode(',', $availability['restaurant_ids']) as $id)
+	$stmt = $db->prepare('DELETE FROM lunch_locations WHERE facebook_id = ?');
+	$stmt->execute(array($user));
+	foreach($suggested as $restaurant)
 	{
 		$stmt = $db->prepare('INSERT INTO lunch_locations (facebook_id, yelp_business_id) VALUES (?, ?)');
-		$stmt->execute(array($user, $id));
+		$stmt->execute(array($user, $restaurant->id));
 	}
 	$db->commit();
-	return true;
+	return $suggested;
 }
 
 function leave_lunchline()

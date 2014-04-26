@@ -20,25 +20,19 @@ switch($_GET['action'])
 		$data = get_friend_locations($_GET['facebook_id']);
 		echo json_encode(array('success' => true, 'data' => $data));
 		exit;
-	case 'search-restaurants':
-		require_fb_auth();
-		require_params(array('loc_lat', 'loc_lng', 'q'));
-		$data = find_restuarants($_GET['loc_lat'], $_GET['loc_lng'], $_GET['q']);
-		echo json_encode(array('succss' => true, 'data' => $data));
-		exit;
 	case 'join-lunchline':
 		require_fb_auth();
-		require_params(array('starttime', 'endtime', 'restaurant_ids', 'loc_lat', 'loc_lng'));
-		if(join_lunchline(array(
+		require_params(array('starttime', 'endtime', 'food_pref', 'loc_lat', 'loc_lng'));
+		if(($restaurants = join_lunchline(array(
 				'starttime' => $_GET['starttime'],
 				'endtime' => $_GET['endtime'],
-				'restaurant_ids' => $_GET['restaurant_ids'],
+				'food_pref' => $_GET['food_pref'],
 				'status' => 1,
 				'loc_lat' => $_GET['loc_lat'],
 				'loc_lng' => $_GET['loc_lng']
-		)))
+		))) != false)
 		{
-			echo json_encode(array('success' => true));
+			echo json_encode(array('success' => true, 'data' => array('restaurants' => $restaurants)));
 		}
 		else
 		{

@@ -14,7 +14,6 @@ else
 
 //includes some library
 require('includes/class_yelp.php');
-require('includes/functions_location.php');
 require('includes/facebook/facebook.php');
 require('includes/functions_lunchline.php');
 require('includes/functions.php');
