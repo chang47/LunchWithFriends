@@ -4,7 +4,8 @@ $(document).ready(function() {
 	request("get-friends",{}, function(data) {
 		list = $("#friendlist ul");
 		list.html("");
-		var time;
+		var starttime;
+		var endtime;
 		$.each(data, function(k, person) {
 			starttime = parseTime(person.startdatetime);
 			endttime = parseTime(person.enddatetime);
