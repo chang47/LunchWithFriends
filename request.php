@@ -29,8 +29,8 @@ switch($_GET['action'])
 				'restaurant_ids' => $_GET['restaurant_ids'],
 				'status' => 1,
 				'loc_lat' => $_GET['loc_lat'],
-				'loc_lng' => $_GET['loc_lng']
-				'pref' => $_GET['pref'];
+				'loc_lng' => $_GET['loc_lng']#,
+				#'pref' => $_GET['pref']
 		)));
 		{
 			echo json_encode(array('success' => true));
