@@ -1,3 +1,5 @@
+var colors = ['green', 'blue', 'orange', 'purple', 'black'];
+
 $(document).ready(function() {
 	request("get-friends",{}, function(data) {
 		var list = $("#friendlist ul");
@@ -22,6 +24,15 @@ $(document).ready(function() {
 			});
 		});
 	});
+	var friend = $('#friendlist ul li');
+	var color = 0;
+	friend.click(function() {
+		$(this).css('background', colors[color]);
+		color++;
+		if (color >= colors.length) {
+			color = 0;
+		};
+	});	
 });
 
 function parseTime(time) {
