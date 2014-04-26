@@ -17,7 +17,7 @@ $(document).ready(function() {
 			list.append(liEl);
 			liEl.click(function() {
 				console.log($(this).css('background-color'));
-				if ($(this).prop('background-color')) {
+				if ($(this).css('background-color')) {
 					$(this).css('background-color', "");
 				} else {
 					$(this).css('background-color', licolors[licolor]);
