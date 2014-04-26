@@ -67,7 +67,7 @@ var infowindow =  new google.maps.InfoWindow({
 });
 var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
 
-function addBusinessMarker(business) {
+function addBusinessMarker(business, color) {
 	console.log(business.location.display_address[0]);
 	console.log(business.location.display_address[3]);
 	console.log(business.snippet_image_url);
@@ -115,8 +115,8 @@ function addBusinessMarker(business) {
 	} // end if statement
 }
 
-function removeAllMarkers() {
-  map.clearOverlays();
+function removeMarkers(color) {
+	//map.clearOverlays();
 }
 
 function addUser(data) {
