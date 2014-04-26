@@ -15,6 +15,11 @@ $(document).ready(function() {
 				+ "<br />Preference: </div></li>");
 			list.append(liEl);
 			liEl.click(function() {
+				$(this).css('background', colors[color]);
+				color++;
+				if (color >= colors.length) {
+					color = 0;
+				};
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
 						removeMarkers("blue");
@@ -24,15 +29,6 @@ $(document).ready(function() {
 			});
 		});
 	});
-	var friend = $('#friendlist ul li');
-	var color = 0;
-	friend.click(function() {
-		$(this).css('background', colors[color]);
-		color++;
-		if (color >= colors.length) {
-			color = 0;
-		};
-	});	
 });
 
 function parseTime(time) {
