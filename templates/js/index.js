@@ -19,6 +19,7 @@ $(document).ready(function() {
 				//console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
 				if ($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
 					var removeColor = $(this).css('background-color');
+					console.log("removeColor: " + removeColor);
 					$(this).css('background-color', "rgba(0, 0, 0, 0)");
 					removeMarkers(removeColor);
 				} else {
