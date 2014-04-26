@@ -9,9 +9,7 @@ $(document).ready(function() {
 		$.each(data, function(k, person) {
 			starttime = parseTime(person.startdatetime);
 			endtime = parseTime(person.enddatetime);
-			console.log(starttime);
-			console.log(endtime);
-			list.append("<li><img src='" + person.dp + "' /> <div id='name'>" + person.name + "</div><div class='smallinfo'>Start: " + starttime + "<br />End: " + endtime + "<br />Preference: </div></li>");
+			list.append("<li value='" + person.name "'><img src='" + person.dp + "' /> <div id='name'>" + person.name + "</div><div class='smallinfo'>Start: " + starttime + "<br />End: " + endtime + "<br />Preference: </div></li>");
 			lunchLine.push(person);
 		});
 	})

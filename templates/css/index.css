@@ -9,7 +9,7 @@ body {
 #pagewrap {
 	width: 100%;
 	margin-top: 50px;
-	border: 1px solid black;
+	border: 2px solid black;
 	text-align: center;
 	overflow: hidden;
 }
@@ -101,6 +101,7 @@ input[placeholder="Start Time"] {
 
 .time-group {
 	padding-top: 10px;
+	font-weight: bolder;
 }
 
 .navbar {
@@ -109,6 +110,7 @@ input[placeholder="Start Time"] {
 
 .navbar-brand {
 	font-family: "Geeza Pro";
+	padding-left: 20px;
 }
 
 input {
@@ -125,4 +127,6 @@ input[type=submit] {
 	background: rgb(255, 60, 60);
 	float: right;
 	font-weight: bold;
+	border: 2px solid black;
+	border-radius: 10px;
 }
