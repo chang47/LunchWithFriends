@@ -18,7 +18,9 @@ $(document).ready(function() {
 			liEl.click(function() {
 				console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
 				if ($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
+					var removeColor = $(this).css('background-color');
 					$(this).css('background-color', "rgba(0, 0, 0, 0)");
+					removeMarkers(removeColor);
 				} else {
 					$('#friendlist ul li').css('background-color', "rgba(0, 0, 0, 0)");
 					$(this).css('background-color', licolors[licolor]);
