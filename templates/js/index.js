@@ -9,7 +9,7 @@ $(document).ready(function() {
 		$.each(data, function(k, person) {
 			starttime = parseTime(person.startdatetime);
 			endtime = parseTime(person.enddatetime);
-			list.append("<li value='" + person.name "'><img src='" + person.dp + "' /> <div id='name'>" + person.name 
+			list.append("<li value='" + person.name "'><img src='" + person.dp + "' /><div id='name'>" + person.name 
 				+ "</div><div class='smallinfo'>Start: " + starttime 
 				+ "<br />End: " + endtime 
 				+ "<br />Preference: </div></li>");
