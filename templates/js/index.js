@@ -2,13 +2,14 @@ var lunchLine = [];
 
 $(document).ready(function() {
 	request("get-friends",{}, function(data) {
-		list = $("#friendlist ul");
+		var list = $("#friendlist ul");
 		list.html("");
 		var starttime;
 		var endtime;
 		$.each(data, function(k, person) {
 			starttime = parseTime(person.startdatetime);
 			endtime = parseTime(person.enddatetime);
+			console.log(person.name + " " + person.dp + " " + endtime + " " + starttime);
 			list.append("<li value='" + person.name "'><img src='" + person.dp + "' /><div id='name'>" + person.name 
 				+ "</div><div class='smallinfo'>Start: " + starttime 
 				+ "<br />End: " + endtime 
