@@ -31,6 +31,7 @@ $(document).ready(function() {
 				}
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
+						console.log('licolor: ' + licolor);
 						if (licolor >= licolors.length || licolor - 1 < 0) {
 							licolor = 1;
 						};
