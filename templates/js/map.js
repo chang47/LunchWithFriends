@@ -124,10 +124,11 @@ $(document).ready(function() {
         var start = $("select[name='startdatetime'] option:selected").val();
         var end = $("select[name='enddatetime'] option:selected").val();
         var food = $("#preference").val();
-        //alert(start + " " + end + " " + food);
+        alert(start + " " + end + " " + food);
 
 
         request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function(data){
+          console.log(data);
           $.each(data.data.businesses, function(k, v) {
               console.log(v.location.display_address[0]);
               console.log(v.location.display_address[3]);
