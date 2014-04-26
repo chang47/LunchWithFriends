@@ -123,10 +123,11 @@ $(document).ready(function() {
       $("#submitButton").click(function() {
         var start = $("select[name='startdatetime'] option:selected").val();
         var end = $("select[name='enddatetime'] option:selected").val();
-        alert(start);
+        var food = $("#preference").val();
+        alert(start + " " + end + " " + food);
 
 
-        //request("join-lunchline", {starttime : , endtime: , food_pref : , loc_lat : userLat, loc_lng : userLng}, function() {});
+        request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function() {});
         return false;
       });
 
