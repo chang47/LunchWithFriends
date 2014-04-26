@@ -5,6 +5,7 @@
                   "red": "mm_20_red","white": "mm_20_white", "yellow": "mm_20_yellow", "black": "mm_20_black", 
                   "blue": "mm_20_blue", "brown": "mm_20_brown"};
       var markerskey = ["gray", "green", "orange", "purple", "red", "white", "yellow", "black", "blue", "brown"]; //makes the array of markers to be removed based off of colors.
+      var markers = new Array();
       $.each(markerskey, function(k, v) {
         markers[v] = new Array();
       });
