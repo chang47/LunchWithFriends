@@ -119,7 +119,7 @@ function addBusinessMarker(business, color) {
                             + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address1 + '</p>'
                             + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address2 + '</p>'
                             + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].image + '">'
-                            + '<button id="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].id + '" type="button" class="btn btn-default">Middle</button>');
+                            + '<button id="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].id + '" type="button" class="engagebutton btn btn-default">Middle</button>');
                           infowindow.close();
                           infowindow.open(map, poop);
                         });
@@ -147,10 +147,10 @@ function addUser(data) {
 
   $.each()
 
-  $(".btn btn-default").click(function() {
+  $(".engagebutton").click(function() {
     var fbid;
     $("#friendlist ul").children().each(function() {
-      if($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
+      if($(this).css('background-color') != "rgba(0, 0, 0, 0)")) {
         fbid = $(this).attr("fbid");
         return false;
       }
