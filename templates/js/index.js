@@ -32,7 +32,7 @@ $(document).ready(function() {
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
 						removeMarkers("blue");
-						addBusinessMarker(v, "blue");
+						addBusinessMarker(v, licolors[color]);
 					});
 				});
 			});
