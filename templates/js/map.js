@@ -55,7 +55,7 @@ $(document).ready(function() {
               content: ""
             });
                         
-            $.getJSON("store.json", function(data){
+           /* $.getJSON("store.json", function(data){
                 $.each(data.data.businesses, function(k, v) {
                     console.log(v.location.display_address[0]);
                     console.log(v.location.display_address[3]);
@@ -106,7 +106,7 @@ $(document).ready(function() {
                    } // end if statement
                 }); //end for each
             }); // end json
-
+*/
 
 
      function addUser(data) {
@@ -124,11 +124,61 @@ $(document).ready(function() {
         var start = $("select[name='startdatetime'] option:selected").val();
         var end = $("select[name='enddatetime'] option:selected").val();
         var food = $("#preference").val();
-        alert(start + " " + end + " " + food);
+        //alert(start + " " + end + " " + food);
 
 
-        request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function() {});
-        return false;
-      });
+        request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function(data){
+          $.each(data.data.businesses, function(k, v) {
+              console.log(v.location.display_address[0]);
+              console.log(v.location.display_address[3]);
+              console.log(v.snippet_image_url);
+              poopdata[v.location.display_address[0]] = [{"image" : v.image_url,
+                                                         "name" : v.name,
+                                                         "ratingImage" :v.rating_img_url,
+                                                         "reviewCount" : v.review_count,
+                                                         "address1" : v.location.display_address[0],
+                                                         "address2" : v.location.display_address[3]}];
+                                                         console.log(v.rating_img_url);
+              //console.log("reading data! " + poopdata[v.location.display_address[0]][0].name);
+              //infowinodw.setContent(v.location.display_address[0]);
+              if(typeof(v.location.display_address[3]) !== "undefined") {
+                geocoder = new google.maps.Geocoder();
+                //1st asynchronous
+                geocoder.geocode({address: v.location.display_address[0] + ", " + v.location.display_address[3]}, function(results) {
+                  console.log(results[0]);
+                  lat = results[0].geometry.location.lat();
+                  lng = results[0].geometry.location.lng();
+                  console.log(results[0].address_components[0].short_name);
+
+                  poopdata2[lat + ":" + lng] = poopdata[results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name]
+                  //Creates the markers
+                  marker[lat + ":" + lng] = new google.maps.Marker({
+                    position: new google.maps.LatLng(lat, lng),
+                    map: map
+                  }); //end marker
+
+                  //2nd asynchronous
+                  google.maps.event.addListener(marker[lat + ":" + lng], "click", function(poop1) {
+                    console.log(poop1);
+                    console.log("infowindow " + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A])
+                     poop = marker[poop1.latLng.k + ":" + poop1.latLng.A];
+                    infowindow.setContent(
+                      '<p><h3>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].name + '</h3></p>' 
+                      + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].ratingImage + '">'
+                      + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].reviewCount 
+                      + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address1 + '</p>'
+                      + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address2 + '</p>'
+                      + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].image + '">');
+                    infowindow.close();
+                    infowindow.open(map, poop);
+                  });
+                }); //geocoder
+
+              count++;
+             } // end if statement
+          }); //end for each
+      }); // end json );
+  return false;
+});
 
 });
