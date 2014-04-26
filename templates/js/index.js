@@ -18,26 +18,23 @@ $(document).ready(function() {
 			liEl.click(function() {
 				//console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
 				if ($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
-					var removeColor = licolors[licolor - 1];
-					console.log("removeColor: " + removeColor);
+					//console.log("removeColor: " + removeColor);
 					$(this).css('background-color', "rgba(0, 0, 0, 0)");
-					removeMarkers(removeColor);
+					$(this).css('color', 'black');
 				} else {
 					$('#friendlist ul li').css('background-color', "rgba(0, 0, 0, 0)");
-					licolor++;
-					if (licolor >= licolors.length || licolor - 1 < 0) {
-						licolor = 1;
+					if (licolor == licolors.length) {
+						licolor = 0;
 					};
-					$(this).css('background-color', licolors[licolor]);
+					$(this).css('background-color', 'red');
+					$(this).css('color', 'white');
+					licolor++;
 				}
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
-						console.log('licolor: ' + licolor);
-						if (licolor >= licolors.length || licolor - 1 < 0) {
-							licolor = 1;
-						};
-						removeMarkers(licolors[licolor - 1]);
-						addBusinessMarker(v, licolors[licolor]);
+						//console.log('licolor: ' + licolor);
+						removeMarkers('blue');
+						addBusinessMarker(v, 'blue');
 					});
 				});
 			});
