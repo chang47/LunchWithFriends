@@ -1,9 +1,10 @@
       var map;
       var userLat;
       var userLong;
-      var colors = {"mm_20_gray", "mm_20_green", "mm_20_orange", "mm_20_purple", 
-                  "mm_20_red", "mm_20_white", "mm_20_yellow", "mm_20_black", 
-                  "mm_20_blue", "mm_20_brown"}
+      var colors = ["gray": "mm_20_gray","green": "mm_20_green","orange": "mm_20_orange","purple": "mm_20_purple", 
+                  "red": "mm_20_red","white": "mm_20_white", "yellow": "mm_20_yellow", "black": "mm_20_black", 
+                  "blue": "mm_20_blue", "brown": "mm_20_brown"];
+      var markers = new Array[]; //makes the array of markers to be removed based off of colors.
       function initialize() {
         var mapOptions = {
           //center: new google.maps.LatLng(47.6559, -122.3031),
@@ -54,9 +55,7 @@ $(document).ready(function() {
 		request("join-lunchline", {starttime: start , endtime: end , food_pref: food, loc_lat: userLat, loc_lng: userLng}, function(data) {
 			data = data.restaurants;
 			$.each(data, function(k, v) {
-        var color = colors.shift();
-        colors.push(color);
-				addBusinessMarker(v, color);
+				addBusinessMarker(v, "red");
 			});
 		});
 		return false;
@@ -97,8 +96,9 @@ function addBusinessMarker(business, color) {
                         marker[lat + ":" + lng] = new google.maps.Marker({
                           position: new google.maps.LatLng(lat, lng),
                           map: map,
-                          icon: iconBase + color + ".png"
+                          icon: iconBase + colors[color] + ".png"
                         }); //end marker
+                        markers[color].push(marker[lat + ":" + lng]); //adds the marker of the color into the array.
 
                         //2nd asynchronous
                         google.maps.event.addListener(marker[lat + ":" + lng], "click", function(poop1) {
@@ -122,6 +122,10 @@ function addBusinessMarker(business, color) {
 
 function removeMarkers(color) {
 	//map.clearOverlays();
+  $.each(markers[color], function(k, v) {
+    //k or v?
+    v.setMap(null);
+  });
 }
 
 function addUser(data) {
