@@ -1,3 +1,4 @@
 $(document).ready(function() {
-	//$friends = 
+	//$friends = $('ul li');
+	//$friends.css('background', 'black');
 });
