@@ -13,8 +13,8 @@ function get_friends_availability()
 		$friend_availability = get_friend_availability($facebook_id);
 		if($friend_availability != false)
 		{
-			$data[$i]['dp'] = 'https://graph.facebook.com/' . $facebook_id . '/picture';
 			$data[$i] = array_merge($val, $friend_availability);
+			$data[$i]['dp'] = 'https://graph.facebook.com/' . $facebook_id . '/picture';
 			$i ++;
 		}
 
