@@ -1,5 +1,12 @@
+var lunchLine = [];
+
 $(document).ready(function() {
-	$friends = $('#friendlist li');
-	$friends.filter(':even').css('background', 'gray');
-	$friends.filter(':odd').css('background', 'black')
+	request("get-friends",{}, function(data) {
+		$list = $("#friendlist ul");
+		for (var person in data) {
+			$list.append("<li><img src='" + person.dp + "' /> + person.name + "</li>");
+			lunchLine.push(person);
+		}
+	})
 });
+

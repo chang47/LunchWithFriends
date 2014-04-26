@@ -20,15 +20,31 @@ header {
 }
 
 #login {
-	text-align: center;
+	text-align: left;
 	border: 1px solid red;
+	margin: auto;
+	width: 90%;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	padding: 10px;
+	overflow: hidden;
+}
+
+.info {
+	width: 400px;
+	float: left;
+	margin-left: 20px;
 }
 
 #button {
 	border: 5px solid black;
 	border-radius: 50px;
 	padding: 10px;
+	display: none; /* log in */
+}
+
+#mapwrap div {
+	margin-left: 10px;
 }
 
 #friendlist {
@@ -37,8 +53,7 @@ header {
 	overflow: scroll;
 	border: 1px solid blue;
 	text-align: left;
-	color: white;
-	margin-left: 5px;
+	color: black;
 	border-radius: 10px;
 	height: 500px;
 }
@@ -58,4 +73,40 @@ header {
 	float: left;
 	width: 60%;
 	height: 500px;
-	}
+}
+
+.input-group {
+	margin-top: 5px;
+}
+
+input[placeholder="Start Time"] {
+	width: 150px;
+}
+
+.time-group {
+	padding-top: 10px;
+}
+
+.navbar {
+	background-color: rgba(218, 221, 217, 0);
+}
+
+.navbar-brand {
+	font-family: "Geeza Pro";
+}
+
+input {
+	padding: 10px;
+}
+
+select {
+	vertical-align: text-bottom;
+}
+
+input[type=submit] {
+	display: table;
+	height: 120px;
+	background: rgb(255, 60, 60);
+	float: right;
+	font-weight: bold;
+}
