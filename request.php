@@ -22,7 +22,7 @@ switch($_GET['action'])
 		exit;
 	case 'join-lunchline':
 		require_fb_auth();
-		require_params(array('starttime', 'endtime', 'restaurant_ids', 'loc_lat', 'loc_lng'));
+		require_params(array('starttime', 'endtime', 'restaurant_ids', 'loc_lat', 'loc_lng', 'pref'));
 		if(join_lunchline(array(
 				'starttime' => $_GET['starttime'],
 				'endtime' => $_GET['endtime'],
@@ -30,7 +30,8 @@ switch($_GET['action'])
 				'status' => 1,
 				'loc_lat' => $_GET['loc_lat'],
 				'loc_lng' => $_GET['loc_lng']
-		)))
+				'pref' => $_GET['pref'];
+		)));
 		{
 			echo json_encode(array('success' => true));
 		}
