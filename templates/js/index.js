@@ -1,5 +1,5 @@
-var colors = ['green', 'blue', 'orange', 'purple', 'black'];
-var color = 0;
+var licolors = ['green', 'blue', 'orange', 'purple'];
+var licolor = 0;
 
 $(document).ready(function() {
 	request("get-friends",{}, function(data) {
@@ -16,10 +16,10 @@ $(document).ready(function() {
 				+ "<br />Preference: </div></li>");
 			list.append(liEl);
 			liEl.click(function() {
-				$(this).css('background', colors[color]);
-				color++;
-				if (color >= colors.length) {
-					color = 0;
+				$(this).css('background', licolors[licolor]);
+				licolor++;
+				if (licolor >= licolors.length) {
+					licolor = 0;
 				};
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
