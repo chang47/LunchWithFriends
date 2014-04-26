@@ -25,12 +25,12 @@
             userLng = position.coords.longitude;
             var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             //alert(pos.lat() + " " + pos.lng());
-            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+            var iconBase = 'http://google.com/mapfiles/arrow.png';
             var marker = new Array();
               marker[0] = new google.maps.Marker({
                   position: new google.maps.LatLng(pos.lat(), pos.lng()),
                   map: map,
-                  icon : "http://google.com/mapfiles/arrow.png"
+                  icon : iconBase
                 });
             }
             map.setCenter(pos);
