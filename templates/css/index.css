@@ -76,6 +76,7 @@ header {
 }
 
 .smallinfo {
+	display: inline-block;
 	font-size: 8pt;
 }
 
