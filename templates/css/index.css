@@ -54,7 +54,6 @@ header {
 #friendlist {
 	display: inline-block;
 	width: 35%;
-	overflow: scroll;
 	text-align: left;
 	color: black;
 	border-radius: 10px;
