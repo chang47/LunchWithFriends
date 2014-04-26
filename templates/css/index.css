@@ -143,7 +143,6 @@ input {
 
 select {
 	vertical-align: text-bottom;
-	margin-right: 5px;
 }
 
 input[type=submit] {
