@@ -9,5 +9,5 @@ function request(action, parameters, callback) {
 		} else {
 			callback(response.data);
 		}
-	}
+	});
 }
