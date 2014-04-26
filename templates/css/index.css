@@ -10,6 +10,7 @@ body {
 	width: 100%;
 	margin-top: 50px;
 	border: 1px solid black;
+	text-align: center;
 	overflow: hidden;
 }
 
@@ -30,29 +31,16 @@ header {
 	padding: 10px;
 }
 
-#map {
-	display: inline-block;
-	width: 65%;
-	height: 500px;
-	float: left;
-	border: 1px solid orange;
-}
-
 #friendlist {
-	position: absolute;
 	display: inline-block;
-	background: #505050;
 	width: 35%;
-	height: 500px;
+	overflow: scroll;
 	border: 1px solid blue;
-	border-radius: 10px;
-	/* change this stuff on log in */
-	background: #505050;
-	text-align: center;
-	color: #A0A0A0;
-	padding-top: 20px;
-	/*----------------------------*/
+	text-align: left;
+	color: white;
 	margin-left: 5px;
+	border-radius: 10px;
+	height: 500px;
 }
 
 #friendlist ul {
@@ -65,8 +53,9 @@ header {
 	list-style-type: none;
 }
 
-#map-canvas {
+#map-canvas { 
 	display: inline-block;
-	height: 500px;
+	float: left;
 	width: 60%;
-}
+	height: 500px;
+	}
