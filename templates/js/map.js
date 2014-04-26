@@ -94,7 +94,7 @@ function addBusinessMarker(business, color) {
 							"reviewCount" : business.review_count,
 							"address1" : business.location.display_address[0],
 							"address2" : business.location.display_address[3],
-              "id" : business.id]};
+              "id" : business.id};
 	console.log("reading data! " + poopdata[business.location.display_address[0]][0].name);
 	if(typeof(business.location.display_address[3]) !== "undefined") {
 		geocoder = new google.maps.Geocoder();
