@@ -26,7 +26,7 @@ $(document).ready(function() {
 					if (licolor == licolors.length) {
 						licolor = 0;
 					};
-					$(this).css('background-color', '#FFBB00');
+					$(this).css('background-color', 'rgb(252, 160, 0)');
 					$(this).css('color', 'white');
 					licolor++;
 				}
