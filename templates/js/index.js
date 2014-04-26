@@ -16,8 +16,9 @@ $(document).ready(function() {
 				+ "<br />Preference: </div></li>");
 			list.append(liEl);
 			liEl.click(function() {
+				console.log($(this).prop('background'));
 				if ($(this).prop('background')) {
-					$(this).css('background', 'none');
+					$(this).css('background', null);
 				} else {
 					$(this).css('background', licolors[licolor]);
 					licolor++;
