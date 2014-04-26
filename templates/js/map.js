@@ -90,7 +90,8 @@ function addBusinessMarker(business) {
                         //Creates the markers
                         marker[lat + ":" + lng] = new google.maps.Marker({
                           position: new google.maps.LatLng(lat, lng),
-                          map: map
+                          map: map,
+                          icon: http://maps.google.com/mapfiles/ms/icons/blue-dot.png
                         }); //end marker
 
                         //2nd asynchronous
@@ -114,7 +115,7 @@ function addBusinessMarker(business) {
 }
 
 function removeAllMarkers() {
-
+  map.clearOverlays();
 }
 
 function addUser(data) {
