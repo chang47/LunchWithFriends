@@ -3,7 +3,7 @@ require('templates/index.html');
 
 function write_times() {
 	for ($i = 0; $i < 24; $i++) {
-		if $i > 12 {
+		if ($i > 12) {
 			?>
 			<option value="<?= $i ?>"><?= $i-12 ?>:00pm</option>
 			<option value="<?= $i + 0.5 ?>"><?= $i-12 ?>:30pm</option>

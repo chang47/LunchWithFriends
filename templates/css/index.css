@@ -28,10 +28,10 @@ h1 {
 }
 
 #login {
+	display: inline-block;
 	text-align: left;
 	border: 1px solid red;
 	margin: auto;
-	width: 90%;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 10px;
@@ -42,6 +42,7 @@ h1 {
 	width: 400px;
 	float: left;
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
 #button {
@@ -147,7 +148,6 @@ input[type=submit] {
 	display: table;
 	height: 120px;
 	background: rgb(255, 60, 60);
-	float: right;
 	font-weight: bold;
 	border: 2px solid black;
 	border-radius: 10px;
