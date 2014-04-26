@@ -10,4 +10,4 @@ function request(action, parameters, callback) {
 			callback(response.data);
 		}
 	}, "json");
-}
+});

@@ -16,14 +16,33 @@ switch($_GET['action'])
 		exit;
 	case 'search-restaurants':
 		require_fb_auth();
-		require_params(array('loc_lat', 'loc_lgn', 'q'));
-		$data = find_restuarants($_GET['loc_lat'], $_GET['loc_lgn'], $_GET['q']);
+		require_params(array('loc_lat', 'loc_lng', 'q'));
+		$data = find_restuarants($_GET['loc_lat'], $_GET['loc_lng'], $_GET['q']);
 		echo json_encode(array('succss' => true, 'data' => $data));
 		exit;
 	case 'join-lunchline':
 		require_fb_auth();
-		require_params(array('time_begin', 'time_end', 'restuarant_ids', 'loc_lat', 'loc_lgn'));
-		update_my_availability(array($_GET['time_begin'], $_GET['time_end'], $_GET['restuarant_ids'], $_GET['loc_lat'], $_GET['loc_lgn']));
+		require_params(array('starttime', 'endtime', 'restaurant_ids', 'loc_lat', 'loc_lng'));
+		if(join_lunchline(array(
+				'starttime' => $_GET['starttime'],
+				'endtime' => $_GET['endtime'],
+				'restaurant_ids' => $_GET['restaurant_ids'],
+				'status' => 1,
+				'loc_lat' => $_GET['loc_lat'],
+				'loc_lng' => $_GET['loc_lng']
+		)))
+		{
+			echo json_encode(array('success' => true));
+		}
+		else
+		{
+			echo json_encode(array('success' => false, 'msg' => 'Failed to join lunchline :('));
+		}
+		exit;
+	case 'leave-lunchline':
+		require_fb_auth();
+		leave_lunchline();
+		echo json_encode(array('success' => true));
 		exit;
 	default:
 		echo json_encode(array('success' => false, 'msg' => 'Invalid action'));
