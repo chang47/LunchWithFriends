@@ -8,7 +8,7 @@ $(document).ready(function() {
 		var endtime;
 		$.each(data, function(k, person) {
 			starttime = parseTime(person.startdatetime);
-			endttime = parseTime(person.enddatetime);
+			endtime = parseTime(person.enddatetime);
 			list.append("<li><img src='" + person.dp + "' />    <div class='smallinfo'>Start:" + starttime + "<br /> End:" + endtime + "</div>" + person.name + "</li>");
 			lunchLine.push(person);
 		});
