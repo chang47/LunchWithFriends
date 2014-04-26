@@ -16,11 +16,11 @@ $(document).ready(function() {
 				+ "<br />Preference: </div></li>");
 			list.append(liEl);
 			liEl.click(function() {
-				console.log($(this).prop('background'));
-				if ($(this).prop('background')) {
-					$(this).css('background', null);
+				console.log($(this).css('background-color'));
+				if ($(this).prop('background-color')) {
+					$(this).css('background-color', "");
 				} else {
-					$(this).css('background', licolors[licolor]);
+					$(this).css('background-color', licolors[licolor]);
 					licolor++;
 					if (licolor >= licolors.length) {
 						licolor = 0;
