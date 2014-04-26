@@ -18,7 +18,8 @@ $(document).ready(function() {
 	});
 	$('#friendlist ul li').click(function() {
 		console.log($(this).value + ', do something awesome!');
-	})
+	});
+	
 });
 
 function parseTime(time) {
