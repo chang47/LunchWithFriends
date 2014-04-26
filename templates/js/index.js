@@ -34,7 +34,7 @@ $(document).ready(function() {
 						if (licolor >= licolors.length || licolor - 1 < 0) {
 							licolor = 1;
 						};
-						removeMarkers(licolor - 1);
+						removeMarkers(licolors[licolor - 1)];
 						addBusinessMarker(v, licolors[licolor]);
 					});
 				});
