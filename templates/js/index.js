@@ -11,7 +11,7 @@ $(document).ready(function() {
 			endtime = parseTime(person.enddatetime);
 			console.log(starttime);
 			console.log(endtime);
-			list.append("<li><img src='" + person.dp + "' /> <div id='name'>" + person.name + "</div><div class='smallinfo'>Start: " + starttime + "<br /> End: " + endtime + "</div></li>");
+			list.append("<li><img src='" + person.dp + "' /> <div id='name'>" + person.name + "</div><div class='smallinfo'>Start: " + starttime + "<br />End: " + endtime + "</div></li>");
 			lunchLine.push(person);
 		});
 	})
@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 function parseTime(time) {
 	var temp = time.split(" ")[1].split(":");
+	return temp[0] + ":" + temp[1];
 	return temp;
 }
 
