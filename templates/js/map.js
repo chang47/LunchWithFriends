@@ -82,12 +82,19 @@ function addBusinessMarker(business, color) {
 	console.log(business.location.display_address[3]);
 	console.log(business.snippet_image_url);
 	console.log(business.rating_img_url);
-	poopdata[business.location.display_address[0]] = [{"image" : business.image_url,
+
+
+  alert(business.id);
+	
+
+
+  poopdata[business.location.display_address[0]] = [{"image" : business.image_url,
 							"name" : business.name,
 							"ratingImage" :business.rating_img_url,
 							"reviewCount" : business.review_count,
 							"address1" : business.location.display_address[0],
-							"address2" : business.location.display_address[3]}];
+							"address2" : business.location.display_address[3]}
+              "id" : business.id];
 	console.log("reading data! " + poopdata[business.location.display_address[0]][0].name);
 	if(typeof(business.location.display_address[3]) !== "undefined") {
 		geocoder = new google.maps.Geocoder();
@@ -117,7 +124,8 @@ function addBusinessMarker(business, color) {
                             + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].reviewCount 
                             + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address1 + '</p>'
                             + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address2 + '</p>'
-                            + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].image + '">');
+                            + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].image + '">'
+                            + '<button id="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].id + '" type="button" class="btn btn-default">Middle</button>');
                           infowindow.close();
                           infowindow.open(map, poop);
                         });
@@ -143,4 +151,9 @@ function addUser(data) {
 		icon: data.dp
 	});
 
+
+  if()
+  request("engage", {facebook_id : , business_id :} function() {
+
+  });
 }
