@@ -44,7 +44,7 @@ function update_availability($facebook_id, $availability)
 	global $db;
 
 	//try to make change to a current record
-	$stmt = $db->prepare('UPDATE lunch_line SET location_lat = ?, location_lng = ?, status = ?, datetime = NOW(), expiredatetime = TIMESTAMPADD(MINUTE, ?, NOW()) WHERE facebook_id = ?');
+	$stmt = $db->prepare('UPDATE lunch_line SET location_lat = ?, location_lng = ?, status = ?, startdatetime = ?, enddatetime = ? WHERE facebook_id = ?');
 	$stmt->execute(array($availability['location_lat'], $availability['location_lng'], $availability['status'], $availability['expire'], $facebook_id));
 	if(!$stmt->rowCount())
 	{

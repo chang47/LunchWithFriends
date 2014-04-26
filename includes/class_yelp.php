@@ -6,7 +6,7 @@ class Yelp
 	private $token;
 	private $consumer;
 
-	public function __constructor($consumer_key, $consumer_secret, $token, $token_secret)
+	public function __construct($consumer_key, $consumer_secret, $token, $token_secret)
 	{
 		// Token object built using the OAuth library
 		$this->token = new OAuthToken($token, $token_secret);
@@ -15,23 +15,22 @@ class Yelp
 		$this->consumer = new OAuthConsumer($consumer_key, $consumer_secret);
 	}
 
-	private function make_request($unsigned_url)
+	public function request($request_name)
 	{
 		// For example, request business with id 'the-waterboy-sacramento'
 		//$unsigned_url = "http://api.yelp.com/v2/business/the-waterboy-sacramento";
 
 		// For examaple, search for 'tacos' in 'sf'
-		//$unsigned_url = "http://api.yelp.com/v2/search?term=tacos&location=sf";
-
+		$unsigned_url = 'http://api.yelp.com/v2/' . $request_name;
 
 		// Yelp uses HMAC SHA1 encoding
 		$signature_method = new OAuthSignatureMethod_HMAC_SHA1();
 
 		// Build OAuth Request using the OAuth PHP library. Uses the consumer and token object created above.
-		$oauthrequest = OAuthRequest::from_consumer_and_token($consumer, $token, 'GET', $unsigned_url);
+		$oauthrequest = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, 'GET', $unsigned_url);
 
 		// Sign the request
-		$oauthrequest->sign_request($signature_method, $consumer, $token);
+		$oauthrequest->sign_request($signature_method, $this->consumer, $this->token);
 
 		// Get the signed URL
 		$signed_url = $oauthrequest->to_url();
