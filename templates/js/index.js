@@ -23,8 +23,8 @@ $(document).ready(function() {
 					removeMarkers(removeColor);
 				} else {
 					$('#friendlist ul li').css('background-color', "rgba(0, 0, 0, 0)");
-					$(this).css('background-color', licolors[licolor]);
 					licolor++;
+					$(this).css('background-color', licolors[licolor]);
 					if (licolor >= licolors.length) {
 						licolor = 0;
 					};
