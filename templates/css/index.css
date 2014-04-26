@@ -51,7 +51,6 @@ header {
 	display: inline-block;
 	width: 35%;
 	overflow: scroll;
-	border: 1px solid blue;
 	text-align: left;
 	color: black;
 	border-radius: 10px;
@@ -66,6 +65,9 @@ header {
 #friendlist ul li {
 	padding: 10px;
 	list-style-type: none;
+	border: 2px solid #050403;
+	border-radius: 10px;
+	margin-bottom: 5px;
 }
 
 #map-canvas { 

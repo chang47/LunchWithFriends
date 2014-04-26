@@ -5,7 +5,7 @@ $(document).ready(function() {
 		list = $("#friendlist ul");
 		list.html("");
 		$.each(data, function(k, person) {
-			list.append("<li><img src='" + person.dp + "' />" + person.name + "</li>");
+			list.append("<li><img src='" + person.dp + "' />    " + person.name + "</li>");
 			lunchLine.push(person);
 		});
 	})
