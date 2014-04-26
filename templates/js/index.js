@@ -20,7 +20,7 @@ $(document).ready(function() {
 				if ($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
 					//console.log("removeColor: " + removeColor);
 					$(this).css('background-color', "rgba(0, 0, 0, 0)");
-					$(this).css('color', 'black');
+					$(this).css('color', 'rgba(255, 255, 255, 1)');
 				} else {
 					$('#friendlist ul li').css('background-color', "rgba(0, 0, 0, 0)");
 					if (licolor == licolors.length) {
