@@ -52,7 +52,7 @@
         if(navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position){
             var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            alert(pos.lat() + " " + pos.lng());
+            //alert(pos.lat() + " " + pos.lng());
             var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
             var marker = new Array();
             for(var i = 0; i < 2; i++) {
@@ -151,10 +151,10 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script>
         request("get-friends", {}, function(data) {
-            for(var person in data) {
-                $("#list").append('<li>' + person.name + '</li>');
-            }
-        });
+		$.each(data, function(k, v) {
+			$("#list").append('<li><img src="' + v.dp + '"> ' + v.name + '</li>');
+		});
+	});
     </script>
   </body>
 </html>
