@@ -1,0 +1,214 @@
+{
+   "succss":true,
+   "data":{
+      "region":{
+         "span":{
+            "latitude_delta":0.069341469999998,
+            "longitude_delta":0.13926022000001
+         },
+         "center":{
+            "latitude":47.62986515,
+            "longitude":-122.2642705
+         }
+      },
+      "total":4,
+      "businesses":[
+         {
+            "is_claimed":true,
+            "distance":6615.9654831477,
+            "mobile_url":"http:\/\/m.yelp.com\/biz\/ambrosia-cafe-seattle",
+            "rating_img_url":"http:\/\/s3-media4.ak.yelpcdn.com\/assets\/2\/www\/img\/c2f3dd9799a5\/ico\/stars\/v1\/stars_4.png",
+            "review_count":188,
+            "name":"Ambrosia Cafe",
+            "snippet_image_url":"http:\/\/s3-media1.ak.yelpcdn.com\/photo\/gDnPJRhih75GPfK-vW70Zw\/ms.jpg",
+            "rating":4,
+            "url":"http:\/\/www.yelp.com\/biz\/ambrosia-cafe-seattle",
+            "location":{
+               "cross_streets":"S 6th Ave & S Maynard Ave",
+               "city":"Seattle",
+               "display_address":[
+                  "619 S King St",
+                  "(b\/t S 6th Ave & S Maynard Ave)",
+                  "International District",
+                  "Seattle, WA 98104"
+               ],
+               "neighborhoods":[
+                  "International District"
+               ],
+               "postal_code":"98104",
+               "country_code":"US",
+               "address":[
+                  "619 S King St"
+               ],
+               "state_code":"WA"
+            },
+            "phone":"2066239028",
+            "snippet_text":"Thirsty for some excellent bubble that is not overly sweet? If so you can't not try Ambrosia--the milk teas and shakes here are a must-try. (This is the...",
+            "image_url":"http:\/\/s3-media4.ak.yelpcdn.com\/bphoto\/9JYsGCGOYkgFB4LzExBsRw\/ms.jpg",
+            "categories":[
+               [
+                  "Coffee & Tea",
+                  "coffee"
+               ],
+               [
+                  "Juice Bars & Smoothies",
+                  "juicebars"
+               ],
+               [
+                  "Bubble Tea",
+                  "bubbletea"
+               ]
+            ],
+            "display_phone":"+1-206-623-9028",
+            "rating_img_url_large":"http:\/\/s3-media2.ak.yelpcdn.com\/assets\/2\/www\/img\/ccf2b76faa2c\/ico\/stars\/v1\/stars_large_4.png",
+            "id":"ambrosia-cafe-seattle",
+            "is_closed":false,
+            "rating_img_url_small":"http:\/\/s3-media4.ak.yelpcdn.com\/assets\/2\/www\/img\/f62a5be2f902\/ico\/stars\/v1\/stars_small_4.png"
+         },
+         {
+            "is_claimed":true,
+            "distance":6626.13746798,
+            "mobile_url":"http:\/\/m.yelp.com\/biz\/pacific-cafe-hong-kong-kitchen-seattle",
+            "rating_img_url":"http:\/\/s3-media1.ak.yelpcdn.com\/assets\/2\/www\/img\/5ef3eb3cb162\/ico\/stars\/v1\/stars_3_half.png",
+            "review_count":106,
+            "name":"Pacific Cafe Hong Kong Kitchen",
+            "snippet_image_url":"http:\/\/s3-media3.ak.yelpcdn.com\/photo\/YlEwELN333EEvpetEjaKPQ\/ms.jpg",
+            "rating":3.5,
+            "url":"http:\/\/www.yelp.com\/biz\/pacific-cafe-hong-kong-kitchen-seattle",
+            "location":{
+               "cross_streets":"King St & Jefferson St",
+               "city":"Seattle",
+               "display_address":[
+                  "416 5th Ave S",
+                  "(b\/t King St & Jefferson St)",
+                  "International District",
+                  "Seattle, WA 98104"
+               ],
+               "neighborhoods":[
+                  "International District"
+               ],
+               "postal_code":"98104",
+               "country_code":"US",
+               "address":[
+                  "416 5th Ave S"
+               ],
+               "state_code":"WA"
+            },
+            "phone":"2066820908",
+            "snippet_text":"Singapore style noodles with bbq pork or vegetarian is great.\n\nYou an opt for the flat noodle instead. Smoothies are really good too. \n\nFriendly service....",
+            "image_url":"http:\/\/s3-media3.ak.yelpcdn.com\/bphoto\/A77g8xQextx1elHKJyCwCA\/ms.jpg",
+            "categories":[
+               [
+                  "Cantonese",
+                  "cantonese"
+               ]
+            ],
+            "display_phone":"+1-206-682-0908",
+            "rating_img_url_large":"http:\/\/s3-media3.ak.yelpcdn.com\/assets\/2\/www\/img\/bd9b7a815d1b\/ico\/stars\/v1\/stars_large_3_half.png",
+            "id":"pacific-cafe-hong-kong-kitchen-seattle",
+            "is_closed":false,
+            "rating_img_url_small":"http:\/\/s3-media1.ak.yelpcdn.com\/assets\/2\/www\/img\/2e909d5d3536\/ico\/stars\/v1\/stars_small_3_half.png"
+         },
+         {
+            "is_claimed":false,
+            "distance":8980.0964380991,
+            "mobile_url":"http:\/\/m.yelp.com\/biz\/drive-thru-boba-bellevue",
+            "rating_img_url":"http:\/\/s3-media1.ak.yelpcdn.com\/assets\/2\/www\/img\/5ef3eb3cb162\/ico\/stars\/v1\/stars_3_half.png",
+            "review_count":28,
+            "name":"Drive Thru Boba",
+            "snippet_image_url":"http:\/\/s3-media4.ak.yelpcdn.com\/photo\/nc2VRK9IbANt980IEgDpwA\/ms.jpg",
+            "rating":3.5,
+            "url":"http:\/\/www.yelp.com\/biz\/drive-thru-boba-bellevue",
+            "snippet_text":"I rarely give five stars to any review, and hell, I rarely write a review unless I am utterly unhappy or ecstatically content with a place.\n\nI see people...",
+            "image_url":"http:\/\/s3-media3.ak.yelpcdn.com\/bphoto\/7s-_jPXm5o9a_diYv3QaHw\/ms.jpg",
+            "categories":[
+               [
+                  "Desserts",
+                  "desserts"
+               ],
+               [
+                  "Coffee & Tea",
+                  "coffee"
+               ],
+               [
+                  "Bubble Tea",
+                  "bubbletea"
+               ]
+            ],
+            "rating_img_url_small":"http:\/\/s3-media1.ak.yelpcdn.com\/assets\/2\/www\/img\/2e909d5d3536\/ico\/stars\/v1\/stars_small_3_half.png",
+            "rating_img_url_large":"http:\/\/s3-media3.ak.yelpcdn.com\/assets\/2\/www\/img\/bd9b7a815d1b\/ico\/stars\/v1\/stars_large_3_half.png",
+            "id":"drive-thru-boba-bellevue",
+            "is_closed":false,
+            "location":{
+               "cross_streets":"N Bellevue Way & N 105th Ave",
+               "city":"Bellevue",
+               "display_address":[
+                  "10435 NE 4th St",
+                  "(b\/t N Bellevue Way & N 105th Ave)",
+                  "Bellevue, WA 98004"
+               ],
+               "postal_code":"98004",
+               "country_code":"US",
+               "address":[
+                  "10435 NE 4th St"
+               ],
+               "state_code":"WA"
+            }
+         },
+         {
+            "is_claimed":false,
+            "distance":970.22208143972,
+            "mobile_url":"http:\/\/m.yelp.com\/biz\/mee-sum-seattle",
+            "rating_img_url":"http:\/\/s3-media3.ak.yelpcdn.com\/assets\/2\/www\/img\/34bc8086841c\/ico\/stars\/v1\/stars_3.png",
+            "review_count":146,
+            "name":"Mee Sum",
+            "snippet_image_url":"http:\/\/s3-media2.ak.yelpcdn.com\/photo\/mJUGQoK1jFFPOvT80zSyFw\/ms.jpg",
+            "rating":3,
+            "url":"http:\/\/www.yelp.com\/biz\/mee-sum-seattle",
+            "location":{
+               "cross_streets":"45th St & 43rd St",
+               "city":"Seattle",
+               "display_address":[
+                  "4343 University Way NE",
+                  "(b\/t 45th St & 43rd St)",
+                  "University District",
+                  "Seattle, WA 98105"
+               ],
+               "neighborhoods":[
+                  "University District"
+               ],
+               "postal_code":"98105",
+               "country_code":"US",
+               "address":[
+                  "4343 University Way NE"
+               ],
+               "state_code":"WA"
+            },
+            "menu_date_updated":1387638974,
+            "phone":"2066327298",
+            "snippet_text":"The coffee milk tea here is fantastic. I find myself coming here regularly and enjoying it just as much each time.\n\nMee Sum also has ample seating and the...",
+            "image_url":"http:\/\/s3-media3.ak.yelpcdn.com\/bphoto\/HpZQKIj3xyxDOH-zcN9MkQ\/ms.jpg",
+            "categories":[
+               [
+                  "Chinese",
+                  "chinese"
+               ],
+               [
+                  "Coffee & Tea",
+                  "coffee"
+               ],
+               [
+                  "Bakeries",
+                  "bakeries"
+               ]
+            ],
+            "display_phone":"+1-206-632-7298",
+            "rating_img_url_large":"http:\/\/s3-media1.ak.yelpcdn.com\/assets\/2\/www\/img\/e8b5b79d37ed\/ico\/stars\/v1\/stars_large_3.png",
+            "menu_provider":"single_platform",
+            "id":"mee-sum-seattle",
+            "is_closed":false,
+            "rating_img_url_small":"http:\/\/s3-media3.ak.yelpcdn.com\/assets\/2\/www\/img\/902abeed0983\/ico\/stars\/v1\/stars_small_3.png"
+         }
+      ]
+   }
+}
