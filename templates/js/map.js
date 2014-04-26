@@ -27,14 +27,11 @@
             //alert(pos.lat() + " " + pos.lng());
             var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
             var marker = new Array();
-            for(var i = 0; i < 2; i++) {
               marker[0] = new google.maps.Marker({
                   position: new google.maps.LatLng(pos.lat(), pos.lng()),
                   map: map,
-                  icon : iconBase + 'schools_maps.png'
+                  icon : "http://google.com/mapfiles/arrow.png"
                 });
-              var lat = 47.6559;
-              var lng = -122.3031;
             }
             map.setCenter(pos);
           }, function(){
