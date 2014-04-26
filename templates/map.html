@@ -18,7 +18,7 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-   	<script type="text/javascript" src="js/request.js"></script>
+    <script type="text/javascript" src="js/request.js"></script>
 
     <!-- Josh map stuff -->
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -131,7 +131,7 @@
     <div class="container">
     <div id="pagewrap">
     <header>
-    	Lunchify
+      Lunchify
     </header>
     <div id="login">
     <span id="button">
@@ -146,14 +146,14 @@
     </span>
     </div>
     <div id="mapwrap">
-    	<div id="map-canvas"></div>
-    	<div id="friendlist">
-    		<ul id="list">
-    			<li>friend1</li>
-    			<li>friend2</li>
-    			<li>friend3</li>
-    		</ul>
-    	</div>
+      <div id="map-canvas"></div>
+      <div id="friendlist">
+        <ul id="list">
+          <li>friend1</li>
+          <li>friend2</li>
+          <li>friend3</li>
+        </ul>
+      </div>
     </div>
     </div><!-- /.container -->
 
@@ -166,10 +166,10 @@
     <script>
 
         request("get-friends", {}, function(data) {
-		$.each(data, function(k, v) {
-			$("#list").append('<li><img src="' + v.dp + '"> ' + v.name + '</li>');
-		});
-	});
+    $.each(data, function(k, v) {
+      $("#list").append('<li><img src="' + v.dp + '"> ' + v.name + '</li>');
+    });
+  });
             /*request("search-restaurants", {loc_lat: lat, loc_lgn: lgn, q: query}, function(data) {
                 for(var building in data) {
                     building.
@@ -177,6 +177,7 @@
             });*/
             var marker = new Array();
             var poopdata = new Array();
+            var poopdata2 = new Array();
             var count = 0;
             var infowindow =  new google.maps.InfoWindow({
               content: "fsdfsd"
@@ -186,26 +187,44 @@
                 $.each(data.data.businesses, function(k, v) {
                     console.log(v.location.display_address[0]);
                     console.log(v.location.display_address[3]);
-                    poopdata[v.location.display_address[0]] = 
+                    console.log(v.snippet_image_url);
+                    poopdata[v.location.display_address[0]] = [{"image" : v.snippet_image_url,
+                                                               "name" : v.name,
+                                                               "ratingImage" :v.rating_img_url,
+                                                               "reviewCount" : v.review_count,
+                                                               "address1" : v.location.display_address[0],
+                                                               "address2" : v.location.display_address[3]}];
+                                                               console.log(v.rating_img_url);
+                    //console.log("reading data! " + poopdata[v.location.display_address[0]][0].name);
                     //infowinodw.setContent(v.location.display_address[0]);
                     if(typeof(v.location.display_address[3]) !== "undefined") {
                       geocoder = new google.maps.Geocoder();
+                      //1st asynchronous
                       geocoder.geocode({address: v.location.display_address[0] + ", " + v.location.display_address[3]}, function(results) {
                         console.log(results[0]);
                         lat = results[0].geometry.location.lat();
                         lng = results[0].geometry.location.lng();
+                        console.log(results[0].address_components[0].short_name);
 
+                        poopdata2[lat + ":" + lng] = poopdata[results[0].address_components[0].short_name + " " + results[0].address_components[1].short_name]
                         //Creates the markers
                         marker[lat + ":" + lng] = new google.maps.Marker({
                           position: new google.maps.LatLng(lat, lng),
                           map: map
                         }); //end marker
 
+                        //2nd asynchronous
                         google.maps.event.addListener(marker[lat + ":" + lng], "click", function(poop1) {
                           console.log(poop1);
+                          console.log("infowindow " + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A])
                            poop = marker[poop1.latLng.k + ":" + poop1.latLng.A];
-
-                          //infowindow.setContent("asdasdwqeqwxz");
+                          infowindow.setContent(
+                            '<p><h1>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].name + '</h1></p>' 
+                            + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].ratingImage + '">'
+                            + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].reviewCount 
+                            + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address1 + '</p>'
+                            + '<p>' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].address2 + '</p>'
+                            + '<img src="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].image + '">');
                           infowindow.close();
                           infowindow.open(map, poop);
                         });
@@ -215,6 +234,7 @@
                    } // end if statement
                 }); //end for each
             }); // end json
+map.cl
     </script>
   </body>
 </html>
