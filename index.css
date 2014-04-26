@@ -1,0 +1,25 @@
+body {
+	margin: 0px auto;
+	padding: 0px;
+}
+
+#pagewrap {
+	width: 1004px;
+	margin: auto;
+}
+
+header {
+	text-align: center;
+}
+
+#map {
+	display: inline-block;
+	width: 600px;
+	height: 400px;
+}
+
+#friendlist {
+	display: inline-block;
+	width: 400px;
+	height: 400px;
+}
