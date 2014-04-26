@@ -31,6 +31,24 @@ function get_friend_availability($facebook_id)
 	return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function get_friend_locations($facebook_id)
+{
+	global $yelp, $db;
+
+	$stmt = $db->prepare('SELECT yelp_business_id FROM lunch_locations WHERE facebook_id = ?');
+	$stmt->execute(array($facebook_id));
+	print_r($stmt->errorInfo());
+	$results = $stmt->fetchall(PDO::FETCH_ASSOC);
+
+	$out = array();
+	foreach($results as $result)
+	{
+		$business = $result['yelp_business_id'];
+		$out[] = $yelp->request('business/' . $business);
+	}
+	return $out;
+}
+
 function join_lunchline($availability)
 {
 	global $user, $db;
@@ -45,6 +63,7 @@ function join_lunchline($availability)
 	}
 
 	//try to make change to a current record
+	$db->beginTransaction();
 	$stmt = $db->prepare('UPDATE lunch_line SET location_lat = ?, location_lng = ?, status = ?, startdatetime = ?, enddatetime = ? WHERE facebook_id = ?');
 	$stmt->execute(array($availability['loc_lat'], $availability['loc_lng'], $availability['status'], $starttime, $endtime, $user));
 	if(!$stmt->rowCount())
@@ -53,6 +72,14 @@ function join_lunchline($availability)
 		$stmt = $db->prepare('INSERT INTO lunch_line (facebook_id, location_lat, location_lng, status, startdatetime, enddatetime) VALUES (?, ?, ?, ?, ?, ?)');
 		$stmt->execute(array($user, $availability['loc_lat'], $availability['loc_lng'], $availability['status'], $starttime, $endtime));
 	}
+
+	//resaurants
+	foreach(explode(',', $availability['restaurant_ids']) as $id)
+	{
+		$stmt = $db->prepare('INSERT INTO lunch_locations (facebook_id, yelp_business_id) VALUES (?, ?)');
+		$stmt->execute(array($user, $id));
+	}
+	$db->commit();
 	return true;
 }
 

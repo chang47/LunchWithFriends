@@ -39,7 +39,7 @@ $(document).ready(function() {
         request("get-friends", {}, function(data) {
     $.each(data, function(k, v) {
       $("#list").append('<li><img src="' + v.dp + '"> ' + v.name + '</li>');
-      //addUser(v)
+      addUser(v)
     });
   });
             /*request("search-restaurants", {loc_lat: userLat, loc_lgn: userLgn, q: query}, function(data) {
@@ -110,10 +110,10 @@ $(document).ready(function() {
 
 
      function addUser(data) {
-        /*var people = new google.maps.Marker({
-          position: = new google.maps.LatLng(data.location_lat, data.location_lng),
+        var people = new google.maps.Marker({
+          position: new google.maps.LatLng(data.location_lat, data.location_lng),
           map: map,
-          icon: '<img src="' + v.dp + '"/>';
-        });*/
+          icon: data.dp
+        });
       }
 });
