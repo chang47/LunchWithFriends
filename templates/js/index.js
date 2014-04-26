@@ -15,7 +15,8 @@ $(document).ready(function() {
 			liEl.click(function() {
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
-						addBusinessMarker(v);
+						removeMarkers("blue");
+						addBusinessMarker(v, "blue");
 					});
 				});
 			});
@@ -28,4 +29,3 @@ function parseTime(time) {
 	if (temp[0][0] == 0) temp[0] = temp[0].substr(1,1);
 	return temp[0] + ":" + temp[1];
 }
-

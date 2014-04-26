@@ -1,9 +1,9 @@
       var map;
       var userLat;
       var userLong;
-      var colors = {"mm_20_gray", "mm_20_green", "mm_20_orange", "mm_20_purple", 
+      var colors = ["mm_20_gray", "mm_20_green", "mm_20_orange", "mm_20_purple", 
                   "mm_20_red", "mm_20_white", "mm_20_yellow", "mm_20_black", 
-                  "mm_20_blue", "mm_20_brown"}
+                  "mm_20_blue", "mm_20_brown"];
       function initialize() {
         var mapOptions = {
           //center: new google.maps.LatLng(47.6559, -122.3031),
