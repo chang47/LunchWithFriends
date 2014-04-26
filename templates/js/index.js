@@ -1,5 +1,5 @@
 var colors = ['green', 'blue', 'orange', 'purple', 'black'];
-var color = 0;
+var color = 0;	
 
 $(document).ready(function() {
 	request("get-friends",{}, function(data) {
