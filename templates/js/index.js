@@ -11,7 +11,7 @@ $(document).ready(function() {
 			endtime = parseTime(person.enddatetime);
 			console.log(starttime);
 			console.log(endtime);
-			list.append("<li><img src='" + person.dp + "' /> <div id='name'>" + person.name + "</div><div class='smallinfo'>Start: " + starttime + "<br />End: " + endtime + "</div></li>");
+			list.append("<li><img src='" + person.dp + "' /> <div id='name'>" + person.name + "</div><div class='smallinfo'>Start: " + starttime + "<br />End: " + endtime + "<br />Preference: </div></li>");
 			lunchLine.push(person);
 		});
 	})
