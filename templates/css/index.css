@@ -45,6 +45,7 @@ header {
 
 #mapwrap div {
 	margin-left: 10px;
+	overflow: hidden;
 }
 
 #friendlist {
@@ -64,7 +65,7 @@ header {
 
 #friendlist ul li {
 	display: inline-flex;
-	width: 100%
+	width: 100%;
 	float: left;
 	clear: left;
 	padding: 10px;
