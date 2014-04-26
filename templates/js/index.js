@@ -16,11 +16,15 @@ $(document).ready(function() {
 				+ "<br />Preference: </div></li>");
 			list.append(liEl);
 			liEl.click(function() {
-				$(this).css('background', licolors[licolor]);
-				licolor++;
-				if (licolor >= licolors.length) {
-					licolor = 0;
-				};
+				if ($(this).prop('background')) {
+					$(this).css('background', 'none');
+				} else {
+					$(this).css('background', licolors[licolor]);
+					licolor++;
+					if (licolor >= licolors.length) {
+						licolor = 0;
+					};
+				}
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
 						removeMarkers("blue");
