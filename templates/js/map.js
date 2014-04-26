@@ -122,6 +122,21 @@ function addBusinessMarker(business, color) {
                             + '<button id="' + poopdata2[poop1.latLng.k + ":" + poop1.latLng.A][0].id + '" type="button" class="engagebutton btn btn-default">Middle</button>');
                           infowindow.close();
                           infowindow.open(map, poop);
+                          $(".engagebutton").click(function() {
+                              var fbid;
+                              $("#friendlist ul").children().each(function() {
+                                if($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
+                                  fbid = $(this).attr("fbid");
+                                  return false;
+                                }
+                              });
+                            console.log(fbid);
+                          /*      request("engage", {facebook_id : , business_id :} function() {
+
+                                });*/
+                            });
+
+                          
                         });
 		}); //geocoder
 		count++;
@@ -145,20 +160,4 @@ function addUser(data) {
 		icon: data.dp
 	});
 
-  $.each()
-
-  $(".engagebutton").click(function() {
-    var fbid;
-    $("#friendlist ul").children().each(function() {
-      if($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
-        fbid = $(this).attr("fbid");
-        return false;
-      }
-    });
-  console.log(fbid);
-/*      request("engage", {facebook_id : , business_id :} function() {
-
-      });*/
-  });
-  
 }
