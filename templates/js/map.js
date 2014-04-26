@@ -130,8 +130,8 @@ $(document).ready(function() {
         request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function(data){
           console.log(data);
           console.log(data.restaurants[0]);
-          $.each(data, function(k, v) {
-              console.log(v.restaurants.location.display_address[0]);
+          $.each(data.restaurants, function(k, v) {
+              console.log(v.location.display_address[0]);
               console.log(v.location.display_address[3]);
               console.log(v.snippet_image_url);
               poopdata[v.location.display_address[0]] = [{"image" : v.image_url,
