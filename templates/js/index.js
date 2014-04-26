@@ -19,6 +19,6 @@ $(document).ready(function() {
 
 function parseTime(time) {
 	var temp = time.split(" ")[1].split(":");
-	return Math.floor(time[0]) + ":" + time[1];
+	return temp;
 }
 
