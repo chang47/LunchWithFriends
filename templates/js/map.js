@@ -42,6 +42,20 @@ $(document).ready(function() {
 			addUser(v);
 		});
 	});
+
+	$("#lunchline-form").submit(function() {
+		var start = $("select[name='startdatetime'] option:selected").val();
+		var end = $("select[name='enddatetime'] option:selected").val();
+		var food = $("#preference").val();
+		alert(start + " " + end + " " + food);
+		request("join-lunchline", {starttime: start , endtime: end , food_pref: food, loc_lat: userLat, loc_lng: userLng}, function(data) {
+			data = data.restaurants;
+			$.each(data, function(k, v) {
+				addBusinessMarker(v);
+			});
+		});
+		return false;
+	});
 });
 
 var marker = new Array();
@@ -99,6 +113,10 @@ function addBusinessMarker(business) {
 	} // end if statement
 }
 
+function removeAllMarkers() {
+
+}
+
 function addUser(data) {
 	var people = new google.maps.Marker({
 		position: new google.maps.LatLng(data.location_lat, data.location_lng),
@@ -107,16 +125,3 @@ function addUser(data) {
 	});
 
 }
-
-$("#submitButton").click(function() {
-	var start = $("select[name='startdatetime'] option:selected").val();
-	var end = $("select[name='enddatetime'] option:selected").val();
-	var food = $("#preference").val();
-        alert(start + " " + end + " " + food);
-        request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function(data) {
-		$.each(data, function(k, v) {
-			addBusinessMarker(v);
-		});
-	});
-	return false;
-});
