@@ -44,4 +44,10 @@ header {
 	overflow: scroll;
 	border: 1px solid blue;
 	text-align: left;
+	color: white;
+}
+
+#friendlist ul li {
+	padding: 10px;
+	list-style-type: none;
 }
