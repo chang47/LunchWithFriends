@@ -150,7 +150,7 @@ function addUser(data) {
   $(".engagebutton").click(function() {
     var fbid;
     $("#friendlist ul").children().each(function() {
-      if($(this).css('background-color') != "rgba(0, 0, 0, 0)")) {
+      if($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
         fbid = $(this).attr("fbid");
         return false;
       }
