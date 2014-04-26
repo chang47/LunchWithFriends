@@ -54,7 +54,7 @@ header {
 	text-align: left;
 	color: black;
 	border-radius: 10px;
-	height: 500px;
+	max-height: 500px;
 }
 
 #friendlist ul {
@@ -63,11 +63,19 @@ header {
 }
 
 #friendlist ul li {
+	display: inline-flex;
+	width: 100%
+	float: left;
+	clear: left;
 	padding: 10px;
 	list-style-type: none;
 	border: 2px solid #050403;
 	border-radius: 10px;
 	margin-bottom: 5px;
+}
+
+.smallinfo {
+	font-size: 8pt;
 }
 
 #map-canvas { 
