@@ -17,8 +17,8 @@ $(document).ready(function() {
 			list.append(liEl);
 			liEl.click(function() {
 				console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
-				if ($(this).css('background-color') != rgba(0, 0, 0, 0)) {
-					$(this).css('background-color', rgba(0, 0, 0, 0));
+				if ($(this).css('background-color') != "rgba(0, 0, 0, 0")) {
+					$(this).css('background-color', "rgba(0, 0, 0, 0"));
 				} else {
 					$(this).css('background-color', licolors[licolor]);
 					licolor++;
