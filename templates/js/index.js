@@ -26,7 +26,7 @@ $(document).ready(function() {
 					$('#friendlist ul li').css('background-color', "rgba(0, 0, 0, 0)");
 					licolor++;
 					if (licolor >= licolors.length || licolor - 1 < 0) {
-						licolor = 0;
+						licolor = 1;
 					};
 					$(this).css('background-color', licolors[licolor]);
 				}
