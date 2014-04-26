@@ -129,7 +129,7 @@ $(document).ready(function() {
 
         request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function(data){
           console.log(data);
-          console.log(data[0]);
+          console.log(data.restaurants[0]);
           $.each(data, function(k, v) {
               console.log(v.location.display_address[0]);
               console.log(v.location.display_address[3]);
