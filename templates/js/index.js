@@ -18,7 +18,7 @@ $(document).ready(function() {
 			liEl.click(function() {
 				//console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
 				if ($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
-					var removeColor = licolors[licolor];
+					var removeColor = licolors[licolor - 1];
 					console.log("removeColor: " + removeColor);
 					$(this).css('background-color', "rgba(0, 0, 0, 0)");
 					removeMarkers(removeColor);
