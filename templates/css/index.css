@@ -43,11 +43,11 @@ header {
 	display: none; /* log in */
 }
 
-#mapwrap div {
+#contentwrap div {
 	margin-left: 10px;
 }
 
-#mapwrap {
+#contentwrap {
 	 overflow: hidden;
 }
 

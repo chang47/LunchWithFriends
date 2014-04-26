@@ -17,7 +17,7 @@ $(document).ready(function() {
 		});
 	});
 	$('#friendlist ul li').click(function() {
-		alert($(this).value + ', do something awesome!');
+		console.log($(this).value + ', do something awesome!');
 	})
 });
 
