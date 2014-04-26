@@ -65,6 +65,7 @@ var count = 0;
 var infowindow =  new google.maps.InfoWindow({
 	content: ""
 });
+var iconBase = "http://maps.google.com/mapfiles/ms/icons/";
 
 function addBusinessMarker(business) {
 	console.log(business.location.display_address[0]);
@@ -91,7 +92,7 @@ function addBusinessMarker(business) {
                         marker[lat + ":" + lng] = new google.maps.Marker({
                           position: new google.maps.LatLng(lat, lng),
                           map: map,
-                          icon: http://maps.google.com/mapfiles/ms/icons/blue-dot.png
+                          icon: iconBase + "blue-dot.png"
                         }); //end marker
 
                         //2nd asynchronous
