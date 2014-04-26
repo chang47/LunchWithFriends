@@ -150,8 +150,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script>
-        request("get-friends", "", function(data) {
-            alert(data[0]['name']);
+        request("get-friends", {}, function(data) {
             for(var person in data) {
                 $("#list").append('<li>person.name</li>');
             }
