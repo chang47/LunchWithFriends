@@ -96,6 +96,7 @@
           map.setCenter(pos);
       }, function(){
             //handleNoGeolocation(true);
+<<<<<<< HEAD
         });
 }
 }
@@ -142,13 +143,61 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				Log in to see friends
     	<!-- not logged in yet
     		<ul>
+=======
+          });
+        }
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link type="text/css" href="css/bootstrap.min.css" />
+        <link type="text/css" href="css/bootstrap-timepicker.min.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-2.2.2.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Lunch with Friends</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+>>>>>>> FETCH_HEAD
     <div class="container">
     <div id="pagewrap">
     <header>
     	Lunchify
     </header>
     <div id="login">
-    <span id="button">Log in, Motherfucker.</span>
+    <span id="button">
+        <div class="input-append bootstrap-timepicker">
+            <input id="timepicker1" type="text" class="input-small">
+            <span class="add-on"><i class="icon-time"></i></span>
+        </div>
+ 
+        <script type="text/javascript">
+            $('#timepicker1').timepicker();
+        </script>
+    </span>
     </div>
     <div id="mapwrap">
     	<div id="map-canvas"></div>
@@ -180,6 +229,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			$("#list").append('<li><img src="' + v.dp + '"> ' + v.name + '</li>');
 		});
 	});
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position){
+            var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            request("search-restaurants", {loc_lat: lat, loc_lgn: lgn, q: query}, function(data) {
+            //methods
+            });
+        }
+
     </script>
   </body>
 </html>
