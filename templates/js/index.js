@@ -16,7 +16,7 @@ $(document).ready(function() {
 			lunchLine.push(person);
 		});
 	});
-	$('$friendlist ul li').click(function() {
+	$('#friendlist ul li').click(function() {
 		alert($(this).value + ', do something awesome!');
 	})
 });
