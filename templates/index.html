@@ -12,18 +12,18 @@
 	<title>Lunch With Friends</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="templates/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="css/index.css" rel="stylesheet">
+	<link href="templates/css/index.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/request.js"></script>
+	<script type="text/javascript" src="templates/js/index.js"></script>
+	<script type="text/javascript" src="templates/js/request.js"></script>
 
 	<!-- Josh map stuff -->
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO4GPOyB-CGxEnbqT-KAJHD9VUYjPCPVE&amp;sensor=true"></script>
-	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="templates/js/map.js"></script>
 
 
 </head>
@@ -65,10 +65,14 @@
 					</div>
 					<div class="time-group">
 						Start time: <select name="startdatetime">
-							<option value="1230">12:30am</option>
+							<?php foreach($times as $timestamp => $display) { ?>
+							<option value="<?php echo $timestamp; ?>"><?php echo $display ?></option>
+							<?php } ?>
 						</select>
 						End time: <select name="enddatetime">
-							<option value="1330">1:30pm</option>
+							<?php foreach($times as $timestamp => $display) { ?>
+							<option value="<?php echo $timestamp; ?>"><?php echo $display ?></option>
+							<?php } ?>
 						</select>
 					</div>
 				</div>

@@ -97,7 +97,7 @@ function addBusinessMarker(business, color) {
                         marker[lat + ":" + lng] = new google.maps.Marker({
                           position: new google.maps.LatLng(lat, lng),
                           map: map,
-                          icon: iconBase + colors[color] + ".png"
+                          icon: "http://labs.google.com/ridefinder/images/" + colors[color] + ".png"
                         }); //end marker
                         markers[color].push(marker[lat + ":" + lng]); //adds the marker of the color into the array.
 
@@ -123,12 +123,12 @@ function addBusinessMarker(business, color) {
 
 function removeMarkers(color) {
 	//map.clearOverlays();
-  if(marker[color] != null) {}
+  /*if(marker[color] != null) {}
     $.each(markers[color], function(k, v) {
       //k or v?
       v.setMap(null);
     });
-  }
+  }*/
 }
 
 function addUser(data) {
