@@ -107,3 +107,16 @@ function addUser(data) {
 	});
 
 }
+
+$("#submitButton").click(function() {
+	var start = $("select[name='startdatetime'] option:selected").val();
+	var end = $("select[name='enddatetime'] option:selected").val();
+	var food = $("#preference").val();
+        alert(start + " " + end + " " + food);
+        request("join-lunchline", {starttime :start , endtime: end , food_pref : food, loc_lat : userLat, loc_lng : userLng}, function(data) {
+		$.each(data, function(k, v) {
+			addBusinessMarker(v);
+		});
+	});
+	return false;
+});
