@@ -56,7 +56,6 @@ $(document).ready(function() {
 		var start = $("select[name='startdatetime'] option:selected").val();
 		var end = $("select[name='enddatetime'] option:selected").val();
 		var food = $("#preference").val();
-		alert(start + " " + end + " " + food);
 		request("join-lunchline", {starttime: start , endtime: end , food_pref: food, loc_lat: userLat, loc_lng: userLng}, function(data) {
 			data = data.restaurants;
 			$.each(data, function(k, v) {
@@ -82,12 +81,7 @@ function addBusinessMarker(business, color) {
 	console.log(business.location.display_address[3]);
 	console.log(business.snippet_image_url);
 	console.log(business.rating_img_url);
-
-
-  alert(business.id);
 	
-
-
   poopdata[business.location.display_address[0]] = [{"image" : business.image_url,
 							"name" : business.name,
 							"ratingImage" :business.rating_img_url,
@@ -151,9 +145,20 @@ function addUser(data) {
 		icon: data.dp
 	});
 
+  $.each()
 
-/*  if()
-  request("engage", {facebook_id : , business_id :} function() {
+  $(".btn btn-default").click(function() {
+    var fbid;
+    $("#friendlist ul").children().each(function() {
+      if($(this).css('background-color') != "rgba(0, 0, 0, 0)")) {
+        fbid = $(this).attr("fbid");
+        return false;
+      }
+    });
+  console.log(fbid);
+/*      request("engage", {facebook_id : , business_id :} function() {
 
-  });*/
+      });*/
+  });
+  
 }
