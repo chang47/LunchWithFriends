@@ -1,6 +1,6 @@
       var map;
       var userLat;
-      var userLong;
+      var userLng;
       function initialize() {
         var mapOptions = {
           //center: new google.maps.LatLng(47.6559, -122.3031),
@@ -116,4 +116,18 @@ $(document).ready(function() {
           icon: data.dp
         });
       }
+
+
+
+
+      $("#submitButton").click(function() {
+        var start = $("select[name='startdatetime'] option:selected").val();
+        var end = $("select[name='enddatetime'] option:selected").val();
+        alert(start);
+
+
+        //request("join-lunchline", {starttime : , endtime: , food_pref : , loc_lat : userLat, loc_lng : userLng}, function() {});
+        return false;
+      });
+
 });
