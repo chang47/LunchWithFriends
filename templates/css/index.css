@@ -43,8 +43,8 @@ header {
 	display: none; /* log in */
 }
 
-#contentwrap div {
-	margin-left: 10px;
+#mapwrap {
+	padding-left: 10px;
 }
 
 #contentwrap {
@@ -97,10 +97,6 @@ header {
 
 .input-group {
 	margin-top: 5px;
-}
-
-input[placeholder="Start Time"] {
-	width: 150px;
 }
 
 .time-group {
