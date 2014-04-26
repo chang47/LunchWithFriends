@@ -24,14 +24,17 @@ $(document).ready(function() {
 				} else {
 					$('#friendlist ul li').css('background-color', "rgba(0, 0, 0, 0)");
 					licolor++;
-					$(this).css('background-color', licolors[licolor]);
-					if (licolor >= licolors.length) {
+					if (licolor >= licolors.length || licolor - 1 < 0) {
 						licolor = 0;
 					};
+					$(this).css('background-color', licolors[licolor]);
 				}
 				request('get-friend-locations', {facebook_id: $(this).attr("fbid")}, function(data) {
 					$.each(data, function(k, v) {
-						removeMarkers("blue");
+						if (licolor >= licolors.length || licolor - 1 < 0) {
+							licolor = 1;
+						};
+						removeMarkers(licolor - 1);
 						addBusinessMarker(v, licolors[licolor]);
 					});
 				});
