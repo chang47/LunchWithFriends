@@ -153,7 +153,7 @@
         request("get-friends", "", function(data) {
             alert(data[0]['name']);
             for(var person in data) {
-                $("#list").append('<li>person.name</li>');
+                $("#list").append('<li>' + person.name + '</li>');
             }
         });
     </script>
