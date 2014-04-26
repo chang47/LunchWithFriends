@@ -1,6 +1,9 @@
       var map;
       var userLat;
       var userLong;
+      var color = {mm_20_gray, mm_20_green, mm_20_orange, mm_20_purple, 
+                  mm_20_red, mm_20_white, mm_20_yellow, mm_20_black, 
+                  mm_20_blue, mm_20_brown}
       function initialize() {
         var mapOptions = {
           //center: new google.maps.LatLng(47.6559, -122.3031),
@@ -51,7 +54,7 @@ $(document).ready(function() {
 		request("join-lunchline", {starttime: start , endtime: end , food_pref: food, loc_lat: userLat, loc_lng: userLng}, function(data) {
 			data = data.restaurants;
 			$.each(data, function(k, v) {
-				addBusinessMarker(v);
+				addBusinessMarker(v, color);
 			});
 		});
 		return false;
@@ -92,7 +95,7 @@ function addBusinessMarker(business, color) {
                         marker[lat + ":" + lng] = new google.maps.Marker({
                           position: new google.maps.LatLng(lat, lng),
                           map: map,
-                          icon: iconBase + "blue-dot.png"
+                          icon: iconBase + color.shift() + ".png"
                         }); //end marker
 
                         //2nd asynchronous
@@ -117,6 +120,9 @@ function addBusinessMarker(business, color) {
 
 function removeMarkers(color) {
 	//map.clearOverlays();
+  color = {mm_20_gray, mm_20_green, mm_20_orange, mm_20_purple, 
+            mm_20_red, mm_20_white, mm_20_yellow, mm_20_black, 
+            mm_20_blue, mm_20_brown}
 }
 
 function addUser(data) {
