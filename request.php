@@ -31,7 +31,7 @@ switch($_GET['action'])
 				'loc_lat' => $_GET['loc_lat'],
 				'loc_lng' => $_GET['loc_lng']#,
 				#'pref' => $_GET['pref']
-		)));
+		)))
 		{
 			echo json_encode(array('success' => true));
 		}
