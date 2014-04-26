@@ -16,7 +16,7 @@ $(document).ready(function() {
 				+ "<br />Preference: </div></li>");
 			list.append(liEl);
 			liEl.click(function() {
-				console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
+				//console.log($(this).css('background-color') == "rgba(0, 0, 0, 0)");
 				if ($(this).css('background-color') != "rgba(0, 0, 0, 0)") {
 					var removeColor = $(this).css('background-color');
 					$(this).css('background-color', "rgba(0, 0, 0, 0)");
